@@ -8,7 +8,7 @@
 
 version: 2
 
-project_name: ksctl-cli
+project_name: ksctl-kli
 
 before:
   hooks:

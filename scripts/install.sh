@@ -20,7 +20,7 @@ def print_colored(message, color):
     print(f"{color}{message}{Colors.NoColor}")
 
 def get_latest_release():
-    url = "https://api.github.com/repos/ksctl/cli/releases/latest"
+    url = "https://api.github.com/repos/ksctl/kli/releases/latest"
     with urllib.request.urlopen(url) as response:
         data = response.read()
         release_info = json.loads(data)
@@ -75,9 +75,9 @@ def main():
     print_colored(f"Detected OS: {os_name}, Architecture: {arch}", Colors.Green)
 
     print_colored("Downloading files...", Colors.Blue)
-    download_url_base = f"https://github.com/ksctl/cli/releases/download/{ksctl_version}"
-    tar_file = f"ksctl-cli_{ksctl_version[1:]}_{os_name}_{arch}.tar.gz"
-    checksum_file = f"ksctl-cli_{ksctl_version[1:]}_checksums.txt"
+    download_url_base = f"https://github.com/ksctl/kli/releases/download/{ksctl_version}"
+    tar_file = f"ksctl-kli_{ksctl_version[1:]}_{os_name}_{arch}.tar.gz"
+    checksum_file = f"ksctl-kli_{ksctl_version[1:]}_checksums.txt"
     download_file(f"{download_url_base}/{tar_file}", tar_file)
     download_file(f"{download_url_base}/{checksum_file}", checksum_file)
 

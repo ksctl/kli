@@ -1,4 +1,4 @@
-![CoverPage Social Media](https://github.com/ksctl/ksctl/raw/main/assets/img/cover.svg)
+![CoverPage Social Media](./logo.png)
 
 # kli
 

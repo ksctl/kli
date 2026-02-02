@@ -20,7 +20,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/ksctl/cli/v2/cmd"
+	"github.com/ksctl/kli/v2/cmd"
 	"github.com/spf13/cobra/doc"
 )
 

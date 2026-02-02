@@ -20,7 +20,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/ksctl/cli/v2/pkg/telemetry"
+	"github.com/ksctl/kli/v2/pkg/telemetry"
 	"github.com/ksctl/ksctl/v2/pkg/consts"
 	"github.com/ksctl/ksctl/v2/pkg/logger"
 	"github.com/ksctl/ksctl/v2/pkg/provider"
@@ -32,7 +32,7 @@ func (k *KsctlCommand) Get() *cobra.Command {
 	cmd := &cobra.Command{
 		Use: "get",
 		Example: `
-ksctl get --help
+kli get --help
 `,
 		Short: "Use to get the cluster",
 		Long:  "It is used to get the cluster created by the user",

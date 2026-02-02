@@ -76,8 +76,8 @@ def main():
 
     print_colored("Downloading files...", Colors.Blue)
     download_url_base = f"https://github.com/ksctl/kli/releases/download/{ksctl_version}"
-    tar_file = f"ksctl-kli_{ksctl_version[1:]}_{os_name}_{arch}.tar.gz"
-    checksum_file = f"ksctl-kli_{ksctl_version[1:]}_checksums.txt"
+    tar_file = f"kli_{ksctl_version[1:]}_{os_name}_{arch}.tar.gz"
+    checksum_file = f"kli_{ksctl_version[1:]}_checksums.txt"
     download_file(f"{download_url_base}/{tar_file}", tar_file)
     download_file(f"{download_url_base}/{checksum_file}", checksum_file)
 
@@ -91,24 +91,24 @@ def main():
         exit(1)
     print_colored("Checksum verification passed.", Colors.Green)
 
-    print_colored("Installing ksctl...", Colors.Blue)
+    print_colored("Installing kli...", Colors.Blue)
 
-    temp_dir = "/tmp/ksctl"
+    temp_dir = "/tmp/kli"
     os.makedirs(temp_dir, exist_ok=True)
 
     try:
         with tarfile.open(tar_file, "r:gz") as tar:
             tar.extractall(temp_dir)
 
-        ksctl_binary = os.path.join(temp_dir, "ksctl")
+        ksctl_binary = os.path.join(temp_dir, "kli")
         if not os.path.isfile(ksctl_binary):
             print_colored(f"ksctl binary not found in the tarball", Colors.Red)
             exit(1)
 
-        print_colored("Moving ksctl to /usr/local/bin (requires sudo)...", Colors.Blue)
-        subprocess.run(["sudo", "mv", "-v", ksctl_binary, "/usr/local/bin/ksctl"])
+        print_colored("Moving kli to /usr/local/bin (requires sudo)...", Colors.Blue)
+        subprocess.run(["sudo", "mv", "-v", ksctl_binary, "/usr/local/bin/kli"])
 
-        if shutil.which("ksctl"):
+        if shutil.which("kli"):
             print_colored("INSTALL COMPLETE!", Colors.Green)
         else:
             print_colored("Installation failed. Please check the output for errors.", Colors.Red)

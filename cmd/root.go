@@ -17,10 +17,10 @@ package cmd
 import (
 	"os"
 
-	"github.com/ksctl/cli/v2/pkg/cli"
-	"github.com/ksctl/cli/v2/pkg/telemetry"
+	"github.com/ksctl/kli/v2/pkg/cli"
+	"github.com/ksctl/kli/v2/pkg/telemetry"
 
-	cLogger "github.com/ksctl/cli/v2/pkg/logger"
+	cLogger "github.com/ksctl/kli/v2/pkg/logger"
 	"github.com/spf13/cobra"
 )
 
@@ -32,7 +32,7 @@ func (k *KsctlCommand) NewRootCmd() *cobra.Command {
 	v := false
 
 	cmd := &cobra.Command{
-		Use:   "ksctl",
+		Use:   "kli",
 		Short: "CLI tool for managing multiple K8s clusters",
 		Long:  "CLI tool which can manage multiple K8s clusters from local clusters to cloud provider specific clusters.",
 		PersistentPreRun: func(cmd *cobra.Command, args []string) {
@@ -79,7 +79,7 @@ func (k *KsctlCommand) Cluster() *cobra.Command {
 	cmd := &cobra.Command{
 		Use: "cluster",
 		Example: `
-ksctl cluster --help
+kli cluster --help
 		`,
 		Short: "Use to work with clusters",
 		Long:  "It is used to work with cluster",

@@ -4,8 +4,8 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/ksctl/cli/v2/pkg/cli"
-	"github.com/ksctl/cli/v2/pkg/telemetry"
+	"github.com/ksctl/kli/v2/pkg/cli"
+	"github.com/ksctl/kli/v2/pkg/telemetry"
 	"github.com/ksctl/ksctl/v2/pkg/handler/cluster/common"
 	"github.com/ksctl/ksctl/v2/pkg/handler/cluster/controller"
 	"github.com/spf13/cobra"
@@ -16,7 +16,7 @@ func (k *KsctlCommand) Summary() *cobra.Command {
 	cmd := &cobra.Command{
 		Use: "summary",
 		Example: `
-ksctl cluster summary --help
+kli cluster summary --help
 		`,
 		Short: "Use to get summary of the created cluster",
 		Long:  "It is used to get summary cluster",

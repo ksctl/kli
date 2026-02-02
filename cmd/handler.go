@@ -14,7 +14,7 @@
 
 package cmd
 
-import "github.com/ksctl/cli/v2/pkg/cli"
+import "github.com/ksctl/kli/v2/pkg/cli"
 
 func (k *KsctlCommand) CommandMapping() error {
 	c := k.Cluster()

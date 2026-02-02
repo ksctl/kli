@@ -16,7 +16,7 @@ This CLI utilizes the core components from [Ksctl](https://github.com/ksctl/ksct
 Repo | Description
 -|-
 [Ksctl](https://github.com/ksctl/ksctl) | It provides the core components aka the internals of ksctl features
-[Ksctl CLI](https://github.com/ksctl/kli) | Builds on top of the core Ksctl repository to provide a CLI tool
+[kli](https://github.com/ksctl/kli) | Builds on top of the core Ksctl repository to provide a CLI tool
 [Ksctl Docs](https://github.com/ksctl/docs) | It's for documentation purpose and to host the ksctl website
 
 ## Getting Started guide

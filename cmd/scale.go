@@ -20,8 +20,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/ksctl/cli/v2/pkg/cli"
-	"github.com/ksctl/cli/v2/pkg/telemetry"
+	"github.com/ksctl/kli/v2/pkg/cli"
+	"github.com/ksctl/kli/v2/pkg/telemetry"
 	"github.com/ksctl/ksctl/v2/pkg/consts"
 	"github.com/ksctl/ksctl/v2/pkg/errors"
 	controllerCommon "github.com/ksctl/ksctl/v2/pkg/handler/cluster/common"
@@ -36,7 +36,7 @@ func (k *KsctlCommand) ScaleUp() *cobra.Command {
 	cmd := &cobra.Command{
 		Use: "scaleup",
 		Example: `
-ksctl update scaleup --help
+kli update scaleup --help
 		`,
 		Short: "Use to manually scaleup a selfmanaged cluster",
 		Long:  "It is used to manually scaleup a selfmanaged cluster",
@@ -184,7 +184,7 @@ func (k *KsctlCommand) ScaleDown() *cobra.Command {
 	cmd := &cobra.Command{
 		Use: "scaledown",
 		Example: `
-ksctl update scaledown --help
+kli update scaledown --help
 		`,
 		Short: "Use to manually scaledown a selfmanaged cluster",
 		Long:  "It is used to manually scaledown a selfmanaged cluster",

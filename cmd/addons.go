@@ -20,8 +20,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/ksctl/cli/v2/pkg/cli"
-	"github.com/ksctl/cli/v2/pkg/telemetry"
+	"github.com/ksctl/kli/v2/pkg/cli"
+	"github.com/ksctl/kli/v2/pkg/telemetry"
 	"github.com/ksctl/ksctl/v2/pkg/handler/cluster/controller"
 
 	addonsHandler "github.com/ksctl/ksctl/v2/pkg/handler/addons"
@@ -33,7 +33,7 @@ func (k *KsctlCommand) Addons() *cobra.Command {
 	cmd := &cobra.Command{
 		Use: "addons",
 		Example: `
-ksctl addons --help
+kli addons --help
 `,
 		Short: "Use to work with addons",
 		Long:  "It is used to work with addons",
@@ -47,7 +47,7 @@ func (k *KsctlCommand) EnableAddon() *cobra.Command {
 	cmd := &cobra.Command{
 		Use: "enable",
 		Example: `
-ksctl addons enable --help
+kli addons enable --help
 `,
 		Short: "Use to enable an addon",
 		Long:  "It is used to enable an addon",
@@ -137,7 +137,7 @@ func (k *KsctlCommand) DisableAddon() *cobra.Command {
 	cmd := &cobra.Command{
 		Use: "disable",
 		Example: `
-ksctl addons disable --help
+kli addons disable --help
 `,
 		Short: "Use to disable an addon",
 		Long:  "It is used to disable an addon",

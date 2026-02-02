@@ -24,7 +24,7 @@ import (
 	"runtime"
 
 	"github.com/fatih/color"
-	"github.com/ksctl/cli/v2/pkg/config"
+	"github.com/ksctl/kli/v2/pkg/config"
 	"github.com/ksctl/ksctl/v2/pkg/addons"
 	"github.com/ksctl/ksctl/v2/pkg/consts"
 	"github.com/ksctl/ksctl/v2/pkg/logger"

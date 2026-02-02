@@ -24,8 +24,8 @@ import (
 	"github.com/ksctl/ksctl/v2/pkg/consts"
 	"github.com/ksctl/ksctl/v2/pkg/provider"
 
-	"github.com/ksctl/cli/v2/pkg/cli"
-	"github.com/ksctl/cli/v2/pkg/telemetry"
+	"github.com/ksctl/kli/v2/pkg/cli"
+	"github.com/ksctl/kli/v2/pkg/telemetry"
 	"github.com/ksctl/ksctl/v2/pkg/handler/cluster/controller"
 
 	controllerManaged "github.com/ksctl/ksctl/v2/pkg/handler/cluster/managed"
@@ -39,7 +39,7 @@ func (k *KsctlCommand) Create() *cobra.Command {
 	cmd := &cobra.Command{
 		Use: "create",
 		Example: `
-ksctl create --help
+kli create --help
 		`,
 		Short: "Use to create a cluster",
 		Long:  "It is used to create cluster with the given name from user",

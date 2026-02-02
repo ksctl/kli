@@ -29,9 +29,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ksctl/cli/v2/pkg/cli"
-	"github.com/ksctl/cli/v2/pkg/config"
-	"github.com/ksctl/cli/v2/pkg/telemetry"
+	"github.com/ksctl/kli/v2/pkg/cli"
+	"github.com/ksctl/kli/v2/pkg/config"
+	"github.com/ksctl/kli/v2/pkg/telemetry"
 	"github.com/ksctl/ksctl/v2/pkg/poller"
 	"github.com/spf13/cobra"
 	"golang.org/x/mod/semver"
@@ -79,7 +79,7 @@ func (k *KsctlCommand) SelfUpdate() *cobra.Command {
 	cmd := &cobra.Command{
 		Use: "self-update",
 		Example: `
-ksctl self-update --help
+kli self-update --help
 `,
 		Short: "Use to update the ksctl cli",
 		Long:  "It is used to update the ksctl cli",
@@ -145,7 +145,7 @@ ksctl self-update --help
 func (k *KsctlCommand) fetchLatestVersion() ([]string, error) {
 
 	poller.InitSharedGithubReleasePoller()
-	return poller.GetSharedPoller().Get("ksctl", "cli")
+	return poller.GetSharedPoller().Get("ksctl", "kli")
 }
 
 func (k *KsctlCommand) filterToUpgradeableVersions(versions []string) []string {
@@ -240,9 +240,9 @@ func (k *KsctlCommand) update(version string) error {
 	}
 
 	k.l.Print(k.Ctx, "Delected System", "OS", osName, "Arch", archName)
-	downloadURLBase := fmt.Sprintf("https://github.com/ksctl/cli/releases/download/%s", version)
-	tarFile := fmt.Sprintf("ksctl-cli_%s_%s_%s.tar.gz", version[1:], osName, archName)
-	checksumFile := fmt.Sprintf("ksctl-cli_%s_checksums.txt", version[1:])
+	downloadURLBase := fmt.Sprintf("https://github.com/ksctl/kli/releases/download/%s", version)
+	tarFile := fmt.Sprintf("kli_%s_%s_%s.tar.gz", version[1:], osName, archName)
+	checksumFile := fmt.Sprintf("kli_%s_checksums.txt", version[1:])
 
 	tarUri := fmt.Sprintf("%s/%s", downloadURLBase, tarFile)
 	checksumUri := fmt.Sprintf("%s/%s", downloadURLBase, checksumFile)
@@ -275,7 +275,7 @@ func (k *KsctlCommand) update(version string) error {
 	}
 	k.l.Success(k.Ctx, "Checksum verification successful")
 
-	tempDir, err := os.MkdirTemp("", "ksctl-update")
+	tempDir, err := os.MkdirTemp("", "kli-update")
 	if err != nil {
 		return k.l.NewError(k.Ctx, "Failed to create temp dir", "error", err)
 	}
@@ -299,35 +299,35 @@ func (k *KsctlCommand) update(version string) error {
 		if err != nil {
 			return k.l.NewError(k.Ctx, "Failed to read tar file", "error", err)
 		}
-		if header.Name == "ksctl" {
-			outFile, err := os.Create(filepath.Join(tempDir, "ksctl"))
+		if header.Name == "kli" {
+			outFile, err := os.Create(filepath.Join(tempDir, "kli"))
 			if err != nil {
-				return k.l.NewError(k.Ctx, "Failed to create ksctl binary", "error", err)
+				return k.l.NewError(k.Ctx, "Failed to create kli binary", "error", err)
 			}
 			defer outFile.Close()
 
 			if _, err := io.Copy(outFile, tr); err != nil {
-				return k.l.NewError(k.Ctx, "Failed to copy ksctl binary", "error", err)
+				return k.l.NewError(k.Ctx, "Failed to copy kli binary", "error", err)
 			}
 			break
 		}
 	}
 
-	k.l.Print(k.Ctx, "Making ksctl executable...")
-	if err := os.Chmod(filepath.Join(tempDir, "ksctl"), 0550); err != nil {
-		return k.l.NewError(k.Ctx, "Failed to make ksctl executable", "error", err)
+	k.l.Print(k.Ctx, "Making kli executable...")
+	if err := os.Chmod(filepath.Join(tempDir, "kli"), 0550); err != nil {
+		return k.l.NewError(k.Ctx, "Failed to make kli executable", "error", err)
 	}
 
-	k.l.Print(k.Ctx, "Moving ksctl to /usr/local/bin (requires sudo)...")
-	cmd := exec.Command("sudo", "mv", "-v", filepath.Join(tempDir, "ksctl"), "/usr/local/bin/ksctl")
+	k.l.Print(k.Ctx, "Moving kli to /usr/local/bin (requires sudo)...")
+	cmd := exec.Command("sudo", "mv", "-v", filepath.Join(tempDir, "kli"), "/usr/local/bin/kli")
 	err = cmd.Run()
 	if err != nil {
-		return k.l.NewError(k.Ctx, "Failed to move ksctl to /usr/local/bin", "error", err)
+		return k.l.NewError(k.Ctx, "Failed to move kli to /usr/local/bin", "error", err)
 	}
 
-	_, err = exec.LookPath("ksctl")
+	_, err = exec.LookPath("kli")
 	if err != nil {
-		return k.l.NewError(k.Ctx, "Failed to find ksctl in PATH", "error", err)
+		return k.l.NewError(k.Ctx, "Failed to find kli in PATH", "error", err)
 	}
 
 	return nil

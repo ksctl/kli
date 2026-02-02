@@ -17,7 +17,7 @@ package main
 import (
 	"os"
 
-	"github.com/ksctl/cli/v2/cmd"
+	"github.com/ksctl/kli/v2/cmd"
 )
 
 func main() {

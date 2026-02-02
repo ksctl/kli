@@ -20,8 +20,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/ksctl/cli/v2/pkg/cli"
-	"github.com/ksctl/cli/v2/pkg/telemetry"
+	"github.com/ksctl/kli/v2/pkg/cli"
+	"github.com/ksctl/kli/v2/pkg/telemetry"
 	"github.com/ksctl/ksctl/v2/pkg/consts"
 	"github.com/ksctl/ksctl/v2/pkg/handler/cluster/controller"
 	"github.com/ksctl/ksctl/v2/pkg/handler/cluster/managed"
@@ -35,7 +35,7 @@ func (k *KsctlCommand) Delete() *cobra.Command {
 	cmd := &cobra.Command{
 		Use: "delete",
 		Example: `
-ksctl delete --help
+kli delete --help
 		`,
 		Short: "Use to delete a cluster",
 		Long:  "It is used to delete cluster with the given name from user",

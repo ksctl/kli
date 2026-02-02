@@ -20,7 +20,7 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/ksctl/cli/v2/pkg/cli"
+	"github.com/ksctl/kli/v2/pkg/cli"
 	"github.com/ksctl/ksctl/v2/pkg/addons"
 	"github.com/ksctl/ksctl/v2/pkg/bootstrap/handler/cni"
 	"github.com/ksctl/ksctl/v2/pkg/consts"

@@ -18,7 +18,7 @@ import (
 	"context"
 	"os"
 
-	"github.com/ksctl/cli/v2/pkg/telemetry"
+	"github.com/ksctl/kli/v2/pkg/telemetry"
 	"github.com/ksctl/ksctl/v2/pkg/consts"
 	"github.com/ksctl/ksctl/v2/pkg/errors"
 	"github.com/ksctl/ksctl/v2/pkg/handler/cluster/controller"
@@ -34,7 +34,7 @@ func (k *KsctlCommand) List() *cobra.Command {
 	cmd := &cobra.Command{
 		Use: "list",
 		Example: `
-ksctl list --help
+kli list --help
 `,
 		Short: "Use to list all the clusters",
 		Long:  "It is used to list all the clusters created by the user",

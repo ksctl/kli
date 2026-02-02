@@ -12,10 +12,10 @@ if (($PSVersionTable.PSVersion.Major) -lt 5) {
 Write-Host "Sorry to see you go" -ForegroundColor DarkGreen
 
 $localAppDataPath = $env:LOCALAPPDATA
-$ksctl = Join-Path "$localAppDataPath" 'ksctl'
+$kli = Join-Path "$localAppDataPath" 'kli'
 
-Remove-Item -Force $ksctl | Out-Null
-Remove-Item -Force $env:USERPROFILE\.ksctl | Out-Null
+Remove-Item -Force $kli | Out-Null
+Remove-Item -Force $env:USERPROFILE\.kli | Out-Null
 
 Write-Host "[V] Finished Uninstallation" -ForegroundColor DarkGreen
 Write-Host ""

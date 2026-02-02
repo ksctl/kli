@@ -27,8 +27,8 @@ import (
 
 	"github.com/creack/pty"
 	"github.com/fatih/color"
-	"github.com/ksctl/cli/v2/pkg/cli"
-	"github.com/ksctl/cli/v2/pkg/telemetry"
+	"github.com/ksctl/kli/v2/pkg/cli"
+	"github.com/ksctl/kli/v2/pkg/telemetry"
 	"github.com/ksctl/ksctl/v2/pkg/handler/cluster/common"
 	"github.com/ksctl/ksctl/v2/pkg/handler/cluster/controller"
 	"github.com/ksctl/ksctl/v2/pkg/logger"
@@ -43,7 +43,7 @@ func (k *KsctlCommand) Connect() *cobra.Command {
 	cmd := &cobra.Command{
 		Use: "connect",
 		Example: `
-ksctl connect --help
+kli connect --help
 		`,
 		Short: "Connect to existing cluster",
 		Long:  "It is used to connect to existing cluster",
@@ -189,7 +189,7 @@ func shellAccess(log logger.Logger) {
 	}
 	defer func() { _ = term.Restore(int(os.Stdin.Fd()), oldState) }()
 
-	fmt.Fprintln(ptmx, "echo Hi from Ksctl team! You are now in the shell session having cluster context.")
+	fmt.Fprintln(ptmx, "echo Hi from kli team! You are now in the shell session having cluster context.")
 	fmt.Fprintln(ptmx, "kubectl get nodes -owide && kubectl cluster-info")
 
 	go func() { _, _ = io.Copy(ptmx, os.Stdin) }()

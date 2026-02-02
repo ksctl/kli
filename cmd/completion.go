@@ -15,25 +15,25 @@ func (k *KsctlCommand) ShellCompletion() *cobra.Command {
 
 Bash:
 
-  $ source <(ksctl completion bash)
+  $ source <(kli completion bash)
 
   # To load completions for each session, execute once:
   # Linux:
-  $ ksctl completion bash > /etc/bash_completion.d/ksctl
+  $ kli completion bash > /etc/bash_completion.d/kli
   # macOS:
-  $ ksctl completion bash > /usr/local/etc/bash_completion.d/ksctl
+  $ kli completion bash > /usr/local/etc/bash_completion.d/kli
 
 Zsh:
 
   $ echo "autoload -U compinit; compinit" >> ~/.zshrc
-  $ ksctl completion zsh > "${fpath[1]}/_ksctl"
+  $ kli completion zsh > "${fpath[1]}/_kli"
 
 Fish:
 
-  $ ksctl completion fish | source
+  $ kli completion fish | source
 
   # To load completions for each session, execute once:
-  $ ksctl completion fish > ~/.config/fish/completions/ksctl.fish
+  $ kli completion fish > ~/.config/fish/completions/kli.fish
 `,
 		Args: cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {

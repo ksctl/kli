@@ -21,8 +21,8 @@ import (
 	"strconv"
 
 	"github.com/fatih/color"
-	"github.com/ksctl/cli/v2/pkg/cli"
-	"github.com/ksctl/cli/v2/pkg/config"
+	"github.com/ksctl/kli/v2/pkg/cli"
+	"github.com/ksctl/kli/v2/pkg/config"
 	"github.com/ksctl/ksctl/v2/pkg/consts"
 	"github.com/ksctl/ksctl/v2/pkg/statefile"
 	"github.com/ksctl/ksctl/v2/pkg/utilities"
@@ -34,8 +34,8 @@ func (k *KsctlCommand) Configure() *cobra.Command {
 	cmd := &cobra.Command{
 		Use: "configure",
 
-		Short: "Configure ksctl cli",
-		Long:  "It will display the current ksctl cli configuration",
+		Short: "Configure kli",
+		Long:  "It will display the current kli configuration",
 		Run: func(cmd *cobra.Command, args []string) {
 			headers := []string{"Property", "Value"}
 

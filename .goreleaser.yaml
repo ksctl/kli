@@ -8,7 +8,7 @@
 
 version: 2
 
-project_name: ksctl-kli
+project_name: kli
 
 before:
   hooks:
@@ -17,7 +17,7 @@ before:
 builds:
   - env:
       - CGO_ENABLED=0
-    binary: ksctl
+    binary: kli
     goos:
       - linux
       - darwin
@@ -25,10 +25,10 @@ builds:
       - amd64
       - arm64
     ldflags:
-      - -s -w -X "github.com/ksctl/cli/v2/pkg/config.BuildDate={{.Env.DATE}}"
-      - -s -w -X "github.com/ksctl/cli/v2/pkg/config.Version={{.Env.VERSION}}"
-      - -s -w -X "github.com/ksctl/cli/v2/pkg/config.KsctlCoreVer={{.Env.OCIVERSION}}"
-      - -s -w -X "github.com/ksctl/cli/v2/pkg/telemetry.clientIdentity={{.Env.CLI_IDENTITY}}"
+      - -s -w -X "github.com/ksctl/kli/v2/pkg/config.BuildDate={{.Env.DATE}}"
+      - -s -w -X "github.com/ksctl/kli/v2/pkg/config.Version={{.Env.VERSION}}"
+      - -s -w -X "github.com/ksctl/kli/v2/pkg/config.KsctlCoreVer={{.Env.OCIVERSION}}"
+      - -s -w -X "github.com/ksctl/kli/v2/pkg/telemetry.clientIdentity={{.Env.CLI_IDENTITY}}"
 
 signs:
   - cmd: cosign
